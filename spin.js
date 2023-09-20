@@ -1,3 +1,5 @@
+document.getElementById("startCarousel").addEventListener("click", spinLanguage);
+
 function spinAll() {
 
     resetAll();
@@ -13,6 +15,7 @@ function spinAll() {
 }
 
 function resetAll() {
+
     document.getElementById("location").textContent = "";
     document.getElementById("language").textContent = "";
 
@@ -61,58 +64,10 @@ function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function spinLocation() {
-    const randomnumber = generateRandomNumber(1, 12)
-    let selectedLocation;
-
-    switch(randomnumber) {
-        case 1: 
-            selectedLocation = "Tanglewood Drive";
-            break;
-        case 2: 
-            selectedLocation = "Edgefield Road";
-            break;
-        case 3: 
-            selectedLocation = "Ridgeview Court";
-            break;
-        case 4: 
-            selectedLocation = "Grafton Farmhouse";
-            break;
-        case 5: 
-            selectedLocation = "Willow Street";
-            break;
-        case 6: 
-            selectedLocation = "Maple Lodge Campsite";
-            break;
-        case 7: 
-            selectedLocation = "Camp Woodwind";
-            break;
-        case 8: 
-            selectedLocation = "Prison";
-            break;
-        case 9: 
-            selectedLocation = "Sunny Meadows - Restricted";
-            break;
-        case 10: 
-            selectedLocation = "Sunny Meadows - Full";
-            break;
-        case 11: 
-            selectedLocation = "Bleasdale Farmhouse";
-            break;
-        case 12: 
-            selectedLocation = "Brownstone High School";
-            break;
-        default:
-            selectedLocation = "Tanglewood Drive";
-            break;
-    }
-
-    document.getElementById("location").textContent = selectedLocation;
-}
 
 function spinObjects() {
     resetAll();
-    
+
     const elements = document.getElementsByClassName('hidden');
     for (let i = 0; i < elements.length; i++) {
         elements[i].classList.remove('hidden');
@@ -155,14 +110,100 @@ function spinObjects() {
             document.getElementById(object.name + "img").src = imgSrc;
 
             index++; 
-            setTimeout(showNextObject, 500); // Schedule the next object with a 200ms (0.2s) delay
+            setTimeout(showNextObject, 300);
         }
     }
 
-    showNextObject(); // Start the process by showing the first object
+    showNextObject(); 
 }
 
 function spinLanguage() {
+    const languages = [
+        "English",
+        "Brazilian Portuguese",
+        "Spanish",
+        "Portuguese",
+        "German",
+        "French",
+        "Italian",
+        "Czech",
+        "Polish",
+        "Russian",
+        "Japanese",
+        "Korean",
+        "Turkish",
+        "Simplified Chinese",
+        "Traditional Chinese",
+        "Dutch",
+        "Greek",
+        "Norwegian",
+        "Romanian",
+        "Swedish",
+        "Ukrainian",
+        "Bulgarian",
+        "Danish",
+        "Finnish",
+        "Hungarian",
+        "Arabic",
+        "Catalan"
+    ];
+
+    let currentIndex = 0;
+    const interval = 100; // Adjust the interval duration (in milliseconds)
+    const languageElement = document.getElementById("language");
+
+    const carouselInterval = setInterval(() => {
+        languageElement.textContent = languages[currentIndex];
+        currentIndex++;
+
+        if (currentIndex >= languages.length) {
+            clearInterval(carouselInterval);
+            const randomIndex = Math.floor(Math.random() * languages.length);
+            const selectedLang = languages[randomIndex];
+            languageElement.textContent = selectedLang;
+        }
+    }, interval);
+}
+
+function spinLocation() {
+    const locations = [
+        "Tanglewood Drive",
+        "Edgefield Road",
+        "Ridgeview Court",
+        "Grafton Farmhouse",
+        "Willow Street",
+        "Maple Lodge Campsite",
+        "Camp Woodwind",
+        "Prison",
+        "Sunny Meadows - Restricted",
+        "Sunny Meadows - Full",
+        "Bleasdale Farmhouse",
+        "Brownstone High School"
+    ];
+
+    let currentIndex = 0;
+    const interval = 100; // Adjust the interval duration (in milliseconds)
+    const locationElement = document.getElementById("location");
+
+    const carouselInterval = setInterval(() => {
+        locationElement.textContent = locations[currentIndex];
+        currentIndex++;
+
+        if (currentIndex >= locations.length) {
+            clearInterval(carouselInterval);
+            const randomIndex = Math.floor(Math.random() * locations.length);
+            const selectedLocation = locations[randomIndex];
+            locationElement.textContent = selectedLocation;
+        }
+    }, interval);
+}
+
+document.getElementById("startCarouselLocation").addEventListener("click", spinLocation);
+
+/* 
+Instant language show, not used
+
+function spinLanguageFast() {
 
     const randomnumber = generateRandomNumber(1, 27)
     let selectedLang;
@@ -255,4 +296,59 @@ function spinLanguage() {
     }
 
     document.getElementById("language").textContent = selectedLang;
+}  
+
+
+
+Instant location, not used
+function spinLocation() {
+    const randomnumber = generateRandomNumber(1, 12)
+    let selectedLocation;
+
+    switch(randomnumber) {
+        case 1: 
+            selectedLocation = "Tanglewood Drive";
+            break;
+        case 2: 
+            selectedLocation = "Edgefield Road";
+            break;
+        case 3: 
+            selectedLocation = "Ridgeview Court";
+            break;
+        case 4: 
+            selectedLocation = "Grafton Farmhouse";
+            break;
+        case 5: 
+            selectedLocation = "Willow Street";
+            break;
+        case 6: 
+            selectedLocation = "Maple Lodge Campsite";
+            break;
+        case 7: 
+            selectedLocation = "Camp Woodwind";
+            break;
+        case 8: 
+            selectedLocation = "Prison";
+            break;
+        case 9: 
+            selectedLocation = "Sunny Meadows - Restricted";
+            break;
+        case 10: 
+            selectedLocation = "Sunny Meadows - Full";
+            break;
+        case 11: 
+            selectedLocation = "Bleasdale Farmhouse";
+            break;
+        case 12: 
+            selectedLocation = "Brownstone High School";
+            break;
+        default:
+            selectedLocation = "Tanglewood Drive";
+            break;
+    }
+
+    document.getElementById("location").textContent = selectedLocation;
 }
+
+
+*/
