@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="spin.css">
+    <script defer src="spin.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <title>Finnarhs All the Randoms Spin List</title>
+</head>
+<body>
+
+    <main class="main">
+        <div class="parent">
+            <div class="div1"> 
+                <h1 class="title-h1">Spin All The Things!</h1>
+                <h2 class="title-h2">For Phasmophobia</h2>
+                <button role="button" class="button title-button" onclick="spinAll()">Spin it all!</button>
+            </div>
+            <div class="div2">                 
+                <button role="button" class="button spin-button" onclick="spinObjects()">Spin Items</button>
+
+                <div class="grid-container hidden">
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="dotsimg">
+                        <p id="dots"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="emfimg">
+                        <p id="emf"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="writingimg">
+                        <p id="writing"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="spiritboximg">
+                        <p id="spiritbox"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="thermoimg">
+                        <p id="thermo"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="uvimg">
+                        <p id="uv"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="videocamimg">
+                        <p id="videocam"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="crucifiximg">
+                        <p id="crucifix"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="firelightimg">
+                        <p id="firelight"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="flashlightimg">
+                        <p id="flashlight"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="headgearimg">
+                        <p id="headgear"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="igniterimg">
+                        <p id="igniter"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="incenseimg">
+                        <p id="incense"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="motionimg">
+                        <p id="motion"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="paramicimg">
+                        <p id="paramic"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="photocamimg">
+                        <p id="photocam"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="saltimg">
+                        <p id="salt"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="soundimg">
+                        <p id="sound"></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="img/loading.png" alt="Item 1" id="tripodimg">
+                        <p id="tripod"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="div3"> 
+                <h1 class="title-h1">Locations</h1>
+                <button role="button" class="button spin-button" onclick="spinLocation()">Spin Location</button>
+                <p  class="p-text" id="location"></p>
+            </div>
+            <div class="div4"> 
+                <h1 class="title-h1">Language</h1>
+                <button role="button" class="button spin-button" onclick="spinLanguage()">Spin Language</button>
+                <p class="p-text" id="language"></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>(C) 2023 Finnarh // With thanks to <a href="https://www.twitch.tv/bigmeiklive">BigMeikLive</a></p>
+    </footer>
+</body>
+</html>
