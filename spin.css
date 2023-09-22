@@ -72,15 +72,35 @@ main {
   height: 100%;
 }
 
+.div3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .title-h1 {
   font-family: 'Shadows Into Light', cursive;
 }
 
+.location-img {
+  width: 200px;
+  -webkit-box-shadow: rgba(200, 200, 201, 0.12) 0px 2px 4px 0px, rgba(192, 195, 196, 0.32) 0px 2px 16px 0px;
+          box-shadow: rgba(200, 200, 201, 0.12) 0px 2px 4px 0px, rgba(192, 195, 196, 0.32) 0px 2px 16px 0px;
+}
+
 .p-text {
-  border: 5px solid white;
+  border: 3px solid white;
   width: 200px;
   height: 25px;
   padding: 1rem;
+  font-size: small;
 }
 
 .footer {
