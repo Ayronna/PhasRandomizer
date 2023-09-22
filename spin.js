@@ -18,6 +18,7 @@ function resetAll() {
 
     document.getElementById("location").textContent = "";
     document.getElementById("language").textContent = "";
+    document.getElementById("locationImg").src = "";
 
     document.getElementById("dots").textContent = "";
     document.getElementById("emf").textContent = "";
@@ -184,9 +185,11 @@ function spinLocation() {
     let currentIndex = 0;
     const interval = 100; // Adjust the interval duration (in milliseconds)
     const locationElement = document.getElementById("location");
+    const locationImg = document.getElementById("locationImg");
 
     const carouselInterval = setInterval(() => {
         locationElement.textContent = locations[currentIndex];
+        locationImg.src = `img/${locations[currentIndex]}.png`
         currentIndex++;
 
         if (currentIndex >= locations.length) {
@@ -194,161 +197,9 @@ function spinLocation() {
             const randomIndex = Math.floor(Math.random() * locations.length);
             const selectedLocation = locations[randomIndex];
             locationElement.textContent = selectedLocation;
+            locationImg.src = `img/${locations[randomIndex]}.png`
         }
     }, interval);
 }
 
 document.getElementById("startCarouselLocation").addEventListener("click", spinLocation);
-
-/* 
-Instant language show, not used
-
-function spinLanguageFast() {
-
-    const randomnumber = generateRandomNumber(1, 27)
-    let selectedLang;
-
-    switch(randomnumber) {
-        case 1: 
-            selectedLang = "English";
-            break;
-        case 2: 
-            selectedLang = "Brazilian Portuguese";
-            break;
-        case 3: 
-            selectedLang = "Spanish";
-            break;
-        case 4: 
-            selectedLang = "Portuguese";
-            break;
-        case 5: 
-            selectedLang = "German";
-            break;
-        case 6: 
-            selectedLang = "French";
-            break;
-        case 7: 
-            selectedLang = "Italian";
-            break;
-        case 8: 
-            selectedLang = "Czech";
-            break;
-        case 9: 
-            selectedLang = "Polish";
-            break;
-        case 10: 
-            selectedLang = "Russian";
-            break;
-        case 11: 
-            selectedLang = "Japanese";
-            break;
-        case 12: 
-            selectedLang = "Korean";
-            break;
-        case 13: 
-            selectedLang = "Turkish";
-            break;
-        case 14: 
-            selectedLang = "Simplified Chinese";
-            break;
-        case 15: 
-            selectedLang = "Traditional Chinese";
-            break;
-        case 16: 
-            selectedLang = "Dutch";
-            break;
-        case 17: 
-            selectedLang = "Greek";
-            break;
-        case 18: 
-            selectedLang = "Norwegian";
-            break;
-        case 19: 
-            selectedLang = "Romanian";
-            break;
-        case 20: 
-            selectedLang = "Swedish";
-            break;
-        case 21: 
-            selectedLang = "Ukrainian";
-            break;
-        case 22: 
-            selectedLang = "Bulgarian";
-            break;
-        case 23: 
-            selectedLang = "Danish";
-            break;
-        case 24: 
-            selectedLang = "Finnish";
-            break;
-        case 25: 
-            selectedLang = "Hungarian";
-            break;
-        case 26: 
-            selectedLang = "Arabic";
-            break;
-        case 27: 
-            selectedLang = "Catalan";
-            break;
-        default:
-            selectedLang = "English";
-            break;
-    }
-
-    document.getElementById("language").textContent = selectedLang;
-}  
-
-
-
-Instant location, not used
-function spinLocation() {
-    const randomnumber = generateRandomNumber(1, 12)
-    let selectedLocation;
-
-    switch(randomnumber) {
-        case 1: 
-            selectedLocation = "Tanglewood Drive";
-            break;
-        case 2: 
-            selectedLocation = "Edgefield Road";
-            break;
-        case 3: 
-            selectedLocation = "Ridgeview Court";
-            break;
-        case 4: 
-            selectedLocation = "Grafton Farmhouse";
-            break;
-        case 5: 
-            selectedLocation = "Willow Street";
-            break;
-        case 6: 
-            selectedLocation = "Maple Lodge Campsite";
-            break;
-        case 7: 
-            selectedLocation = "Camp Woodwind";
-            break;
-        case 8: 
-            selectedLocation = "Prison";
-            break;
-        case 9: 
-            selectedLocation = "Sunny Meadows - Restricted";
-            break;
-        case 10: 
-            selectedLocation = "Sunny Meadows - Full";
-            break;
-        case 11: 
-            selectedLocation = "Bleasdale Farmhouse";
-            break;
-        case 12: 
-            selectedLocation = "Brownstone High School";
-            break;
-        default:
-            selectedLocation = "Tanglewood Drive";
-            break;
-    }
-
-    document.getElementById("location").textContent = selectedLocation;
-}
-
-
-*/
