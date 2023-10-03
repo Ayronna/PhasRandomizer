@@ -1,24 +1,20 @@
 document.getElementById("startCarousel").addEventListener("click", spinLanguage);
 
 function spinAll() {
-
     resetAll();
-
-
     spinLocation();
     setTimeout(() => {
         spinLanguage();
         setTimeout(() => {
             spinObjects();
-        }, 500); 
-    }, 500); 
+        }, 1000); 
+    }, 1000); 
 }
 
 function resetAll() {
 
     document.getElementById("location").textContent = "";
     document.getElementById("language").textContent = "";
-    document.getElementById("locationImg").src = "";
 
     document.getElementById("dots").textContent = "";
     document.getElementById("emf").textContent = "";
@@ -37,6 +33,7 @@ function resetAll() {
     document.getElementById("paramic").textContent = "";
     document.getElementById("photocam").textContent = "";
     document.getElementById("salt").textContent = "";
+    document.getElementById("sanity").textContent = "";
     document.getElementById("sound").textContent = "";
     document.getElementById("tripod").textContent = "";
 
@@ -57,6 +54,7 @@ function resetAll() {
     document.getElementById("paramicimg").src = "img/loading.png";
     document.getElementById("photocamimg").src = "img/loading.png";
     document.getElementById("saltimg").src = "img/loading.png";
+    document.getElementById("sanityimg").src = "img/loading.png";
     document.getElementById("soundimg").src = "img/loading.png";
     document.getElementById("tripodimg").src = "img/loading.png";
 }
@@ -92,6 +90,7 @@ function spinObjects() {
         { name: "paramic", tier: ["No Paramic", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/paramic1.png", "img/paramic2.png", "img/paramic3.png"] },
         { name: "photocam", tier: ["No Photocam", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/photocam1.png", "img/photocam2.png", "img/photocam3.png"] },
         { name: "salt", tier: ["No Salt", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/salt1.png", "img/salt2.png", "img/salt3.png"] },
+        { name: "sanity", tier: ["No Sanity med", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/sanity1.png", "img/sanity2.png", "img/sanity3.png"] },
         { name: "sound", tier: ["No Soundsensor", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/sound1.png", "img/sound2.png", "img/sound3.png"] },
         { name: "tripod", tier: ["No Tripod", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/tripod1.png", "img/tripod2.png", "img/tripod3.png"] },
     
@@ -185,11 +184,9 @@ function spinLocation() {
     let currentIndex = 0;
     const interval = 100; // Adjust the interval duration (in milliseconds)
     const locationElement = document.getElementById("location");
-    const locationImg = document.getElementById("locationImg");
 
     const carouselInterval = setInterval(() => {
         locationElement.textContent = locations[currentIndex];
-        locationImg.src = `img/${locations[currentIndex]}.png`
         currentIndex++;
 
         if (currentIndex >= locations.length) {
@@ -197,7 +194,6 @@ function spinLocation() {
             const randomIndex = Math.floor(Math.random() * locations.length);
             const selectedLocation = locations[randomIndex];
             locationElement.textContent = selectedLocation;
-            locationImg.src = `img/${locations[randomIndex]}.png`
         }
     }, interval);
 }
