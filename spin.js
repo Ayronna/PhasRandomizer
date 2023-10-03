@@ -181,12 +181,30 @@ function spinLocation() {
         "Brownstone High School"
     ];
 
+    const locationImages = {
+        "Tanglewood Drive": "img/tanglewood.png",
+        "Edgefield Road": "img/edgefield.png",
+        "Ridgeview Court": "img/ridgeview.png",
+        "Grafton Farmhouse": "img/grafton.png",
+        "Willow Street": "img/willow.png",
+        "Maple Lodge Campsite": "img/maplelodge.png",
+        "Camp Woodwind": "img/campwoodwind.png",
+        "Prison": "img/prison.png",
+        "Sunny Meadows - Restricted": "img/sunnyrestricted.png",
+        "Sunny Meadows - Full": "img/sunnymeadows.png",
+        "Bleasdale Farmhouse": "img/bleasdale.png",
+        "Brownstone High School": "img/highschool.png"
+    };
+
     let currentIndex = 0;
     const interval = 100; // Adjust the interval duration (in milliseconds)
     const locationElement = document.getElementById("location");
+    const locationImageElement = document.getElementById("locationImage");
 
     const carouselInterval = setInterval(() => {
-        locationElement.textContent = locations[currentIndex];
+        const currentLocation = locations[currentIndex];
+        locationElement.textContent = currentLocation;
+        locationImageElement.src = locationImages[currentLocation];
         currentIndex++;
 
         if (currentIndex >= locations.length) {
@@ -194,6 +212,7 @@ function spinLocation() {
             const randomIndex = Math.floor(Math.random() * locations.length);
             const selectedLocation = locations[randomIndex];
             locationElement.textContent = selectedLocation;
+            locationImageElement.src = locationImages[selectedLocation];
         }
     }, interval);
 }
