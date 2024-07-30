@@ -1,4 +1,5 @@
 document.getElementById("startCarousel").addEventListener("click", spinLanguage);
+checkboxes = document.querySelectorAll('input[name="tierCheck"]');
 
 function spinAll() {
     resetAll();
@@ -64,6 +65,16 @@ function generateRandomNumber(min, max) {
 }
 
 
+function getSelectedTiers() {
+    const selectedTiers = [];
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked && checkbox.id !== 'none') {
+            selectedTiers.push(checkbox.value);
+        }
+    });
+    return selectedTiers;
+}
+
 function spinObjects() {
     resetAll();
 
@@ -71,6 +82,8 @@ function spinObjects() {
     for (let i = 0; i < elements.length; i++) {
         elements[i].classList.remove('hidden');
     }
+
+    const selectedTiers = getSelectedTiers();
 
     const objects = [
         { name: "dots", tier: ["No Dots", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/dots1.png", "img/dots2.png", "img/dots3.png"] },
@@ -92,29 +105,37 @@ function spinObjects() {
         { name: "salt", tier: ["No Salt", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/salt1.png", "img/salt2.png", "img/salt3.png"] },
         { name: "sanity", tier: ["No Sanity med", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/sanity1.png", "img/sanity2.png", "img/sanity3.png"] },
         { name: "sound", tier: ["No Soundsensor", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/sound1.png", "img/sound2.png", "img/sound3.png"] },
-        { name: "tripod", tier: ["No Tripod", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/tripod1.png", "img/tripod2.png", "img/tripod3.png"] },
-    
+        { name: "tripod", tier: ["No Tripod", "Tier 1", "Tier 2", "Tier 3"], img: ["img/no.png", "img/tripod1.png", "img/tripod2.png", "img/tripod3.png"] }
     ];
 
-    let index = 0; 
+    let index = 0;
 
     function showNextObject() {
         if (index < objects.length) {
             const object = objects[index];
-            const value = generateRandomNumber(0, 6);
-            const tierIndex = Math.min(3, Math.floor(value / 2));
+            let tierIndex;
+
+            if (selectedTiers.length === 0) {
+                tierIndex = 0; // Default to "No [name]"
+            } else {
+                // Randomly select from the available tiers
+                const randomTier = selectedTiers[Math.floor(Math.random() * selectedTiers.length)];
+                tierIndex = object.tier.indexOf(randomTier);
+                if (tierIndex === -1) tierIndex = 0; // If the tier is not found, default to "No [name]"
+            }
+
             const tierText = object.tier[tierIndex];
             const imgSrc = object.img[tierIndex];
 
             document.getElementById(object.name).textContent = `${object.name.charAt(0).toUpperCase() + object.name.slice(1)}: ${tierText}`;
             document.getElementById(object.name + "img").src = imgSrc;
 
-            index++; 
+            index++;
             setTimeout(showNextObject, 300);
         }
     }
 
-    showNextObject(); 
+    showNextObject();
 }
 
 function spinLanguage() {

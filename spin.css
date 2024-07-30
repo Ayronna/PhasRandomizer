@@ -50,6 +50,10 @@ main {
   font-family: "Shadows Into Light", cursive;
 }
 
+.checkbox-group {
+  margin: 10px 0;
+}
+
 .p-text {
   border: 5px solid white;
   width: 200px;
